@@ -1,0 +1,11 @@
+name: CivsExtras
+version: 1.0.0
+author: JotaFaD
+main: com.jotafad.civsextras.CivsExtras
+api-version: 1.16
+depend: [Civs]
+commands:
+  ce:
+    description: Extra features for the Civs plugin
+    usage: /ce
+    permission: civsextras.ce
