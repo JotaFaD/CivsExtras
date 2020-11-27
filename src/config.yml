@@ -1,8 +1,9 @@
 reload-civs: true
-f-key-command: "cv menu"
+f-key-command: 'cv menu'
 townbar:
-  payout-prefix: "$"
-  payout-suffix: ""
+  payout-prefix: '$'
+  payout-suffix: ''
+  notification-duration: 3
 trades:
 #  librarian:
 #    novice:
