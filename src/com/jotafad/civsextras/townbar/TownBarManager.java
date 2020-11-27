@@ -161,7 +161,7 @@ public class TownBarManager implements Listener
 
         if (!hasTownBar(town.getName())) return;
 
-        if (!region.getEffects().containsKey("Housing")) return;
+        if (!region.getEffects().containsKey("housing")) return;
 
         TownBar townBar = getTownBar(town.getName());
         RegionType regionType = (RegionType) ItemManager.getInstance().getItemType(region.getType());
@@ -180,7 +180,7 @@ public class TownBarManager implements Listener
 
         if (!hasTownBar(town.getName())) return;
 
-        if (!region.getEffects().containsKey("Housing")) return;
+        if (!region.getEffects().containsKey("housing")) return;
 
         TownBar townBar = getTownBar(town.getName());
         RegionType regionType = (RegionType) ItemManager.getInstance().getItemType(region.getType());
