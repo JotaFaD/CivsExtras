@@ -1,4 +1,4 @@
-package com.jotafad.civsextras;
+package io.github.jotafad.civsextras;
 
 import me.ryanhamshire.GriefPrevention.Claim;
 import me.ryanhamshire.GriefPrevention.events.ClaimCreatedEvent;

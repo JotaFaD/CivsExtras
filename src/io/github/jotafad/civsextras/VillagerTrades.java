@@ -1,4 +1,4 @@
-package com.jotafad.civsextras;
+package io.github.jotafad.civsextras;
 
 import com.sun.javafx.util.Utils;
 import org.bukkit.Material;

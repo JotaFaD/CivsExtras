@@ -1,9 +1,9 @@
-package com.jotafad.civsextras;
+package io.github.jotafad.civsextras;
 
-import com.jotafad.civsextras.commands.CECommand;
-import com.jotafad.civsextras.effects.BreakEffect;
-import com.jotafad.civsextras.effects.SoundEffect;
-import com.jotafad.civsextras.townbar.TownBarManager;
+import io.github.jotafad.civsextras.commands.CECommand;
+import io.github.jotafad.civsextras.effects.BreakEffect;
+import io.github.jotafad.civsextras.effects.SoundEffect;
+import io.github.jotafad.civsextras.townbar.TownBarManager;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 

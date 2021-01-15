@@ -1,4 +1,4 @@
-package com.jotafad.civsextras;
+package io.github.jotafad.civsextras;
 
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import de.bluecolored.bluemap.api.BlueMapMap;
@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 public class BlueMapIntegration implements Listener

@@ -1,6 +1,6 @@
-package com.jotafad.civsextras.effects;
+package io.github.jotafad.civsextras.effects;
 
-import com.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.CivsExtras;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
@@ -11,7 +11,6 @@ import org.redcastlemedia.multitallented.civs.regions.Region;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 public class BreakEffect implements Listener
 {

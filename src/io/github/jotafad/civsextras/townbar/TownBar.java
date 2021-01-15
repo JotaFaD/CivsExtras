@@ -1,7 +1,7 @@
-package com.jotafad.civsextras.townbar;
+package io.github.jotafad.civsextras.townbar;
 
-import com.jotafad.civsextras.CivsExtras;
-import com.jotafad.civsextras.utils.Utils;
+import io.github.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;

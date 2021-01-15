@@ -1,6 +1,6 @@
-package com.jotafad.civsextras.effects;
+package io.github.jotafad.civsextras.effects;
 
-import com.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.CivsExtras;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.World;

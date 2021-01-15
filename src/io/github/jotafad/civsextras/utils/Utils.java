@@ -1,4 +1,4 @@
-package com.jotafad.civsextras.utils;
+package io.github.jotafad.civsextras.utils;
 
 public class Utils
 {

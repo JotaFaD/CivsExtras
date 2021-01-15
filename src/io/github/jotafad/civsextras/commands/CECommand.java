@@ -1,6 +1,6 @@
-package com.jotafad.civsextras.commands;
+package io.github.jotafad.civsextras.commands;
 
-import com.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.CivsExtras;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
