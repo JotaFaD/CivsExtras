@@ -75,22 +75,18 @@ public class BlueMapIntegration implements Listener
                 Location regionLocation = region.getLocation();
                 Town town = TownManager.getInstance().getTownAt(regionLocation);
 
-                String markerSetId = town != null ? "Civs-" + town.getName() : "Civs-" + region.getId();
+                String markerSetId = town != null ? "Civs-" + town.getName() : "Civs-" + regionType.getDisplayName();
                 String markerSetName = town != null ? town.getName() : regionType.getDisplayName();
                 MarkerSet markerSet;
 
-                if (town != null && markerAPI.getMarkerSet(markerSetId).isPresent())
-                {
-                    markerSet = markerAPI.getMarkerSet(markerSetId).get();
-                }
-                else if (!markerAPI.getMarkerSet(markerSetId).isPresent())
+                if (!markerAPI.getMarkerSet(markerSetId).isPresent())
                 {
                     markerSet = markerAPI.createMarkerSet(markerSetId);
                     markerSet.setLabel(markerSetName);
                 }
                 else
                 {
-                    continue;
+                    markerSet = markerAPI.getMarkerSet(markerSetId).get();
                 }
 
                 Optional<BlueMapWorld> blueMapWorld = blueMapAPI.getWorld(region.getLocation().getWorld().getUID());
@@ -167,18 +163,14 @@ public class BlueMapIntegration implements Listener
 
             for(Region region : regions)
             {
+                RegionType regionType = (RegionType) ItemManager.getInstance().getItemType(region.getType());
                 Town town = TownManager.getInstance().getTownAt(region.getLocation());
 
-                if (town != null)
-                {
-                    markerAPI.getMarkerSet("Civs-" + town.getName()).ifPresent(markerSet -> {
-                        markerSet.removeMarker(region.getId());
-                    });
-                }
-                else
-                {
-                    markerAPI.removeMarkerSet("Civs-" + region.getId());
-                }
+                String markerSetId = town != null ? "Civs-" + town.getName() : "Civs-" + regionType.getDisplayName();
+
+                markerAPI.getMarkerSet(markerSetId).ifPresent(markerSet -> {
+                    markerSet.removeMarker(region.getId());
+                });
             }
 
             try
