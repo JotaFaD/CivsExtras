@@ -26,6 +26,9 @@ public class CivsExtras extends JavaPlugin
         getServer().getPluginManager().registerEvents(new KeyBinding(this), this);
         getServer().getPluginManager().registerEvents(blueMapIntegration, this);
         //getServer().getPluginManager().registerEvents(new GriefPreventionIntegration(this), this);
+
+        int pluginId = 10098;
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     @Override
