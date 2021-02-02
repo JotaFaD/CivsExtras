@@ -1,30 +1,35 @@
-//package io.github.jotafad.civsextras;
-//
-//import me.ryanhamshire.GriefPrevention.Claim;
-//import me.ryanhamshire.GriefPrevention.events.ClaimCreatedEvent;
-//import org.bukkit.Location;
-//import org.bukkit.entity.Player;
-//import org.bukkit.event.EventHandler;
-//import org.bukkit.event.Listener;
-//import org.redcastlemedia.multitallented.civs.items.ItemManager;
-//import org.redcastlemedia.multitallented.civs.regions.Region;
-//import org.redcastlemedia.multitallented.civs.regions.RegionManager;
-//import org.redcastlemedia.multitallented.civs.regions.RegionType;
-//import org.redcastlemedia.multitallented.civs.towns.Town;
-//import org.redcastlemedia.multitallented.civs.towns.TownManager;
-//import org.redcastlemedia.multitallented.civs.towns.TownType;
-//
-//import java.util.HashSet;
-//import java.util.Set;
-//
-//public class GriefPreventionIntegration implements Listener
-//{
-//    private final CivsExtras plugin;
-//
-//    public GriefPreventionIntegration(CivsExtras plugin)
-//    {
-//        this.plugin = plugin;
-//    }
+package io.github.jotafad.civsextras;
+
+import me.ryanhamshire.GriefPrevention.GriefPrevention;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.redcastlemedia.multitallented.civs.events.RegionCreatedEvent;
+
+import java.util.Optional;
+import java.util.logging.Level;
+
+public class GriefPreventionIntegration implements Listener
+{
+    private final CivsExtras plugin;
+
+    public GriefPreventionIntegration(CivsExtras plugin)
+    {
+        this.plugin = plugin;
+        plugin.getLogger().log(Level.INFO, "GriefPreventionIntegration Loaded");
+    }
+
+    public Optional<GriefPrevention> getGriefPreventionAPI()
+    {
+        return Optional.ofNullable(GriefPrevention.instance);
+    }
+
+    @EventHandler
+    public void onRegionCreatedEvent(RegionCreatedEvent event)
+    {
+        getGriefPreventionAPI().ifPresent(griefPreventionAPI -> {
+            plugin.getLogger().log(Level.INFO, "GriefPrevention Found");
+        });
+    }
 //
 //    @EventHandler
 //    public void onClaimCreatedEvent(ClaimCreatedEvent event)
@@ -102,4 +107,4 @@
 //
 //        return intersectingTowns;
 //    }
-//}
+}

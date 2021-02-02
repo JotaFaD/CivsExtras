@@ -4,6 +4,8 @@ author: JotaFaD
 main: io.github.jotafad.civsextras.CivsExtras
 api-version: 1.16
 depend: [Civs]
+softdepend:
+  - GriefPrevention
 commands:
   ce:
     description: Extra features for the Civs plugin
