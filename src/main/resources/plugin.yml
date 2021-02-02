@@ -5,6 +5,7 @@ main: io.github.jotafad.civsextras.CivsExtras
 api-version: 1.16
 depend: [Civs]
 softdepend:
+  - BlueMap
   - GriefPrevention
 commands:
   ce:

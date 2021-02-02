@@ -40,7 +40,6 @@ public class CivsExtras extends JavaPlugin
             getLogger().log(Level.INFO, "GP Found");
         }
 
-
         int pluginId = 10098;
         Metrics metrics = new Metrics(this, pluginId);
     }
