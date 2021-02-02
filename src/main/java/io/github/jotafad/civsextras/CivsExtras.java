@@ -12,7 +12,7 @@ import java.util.logging.Level;
 
 public class CivsExtras extends JavaPlugin
 {
-    public BlueMapIntegration blueMapIntegration = new BlueMapIntegration(this);
+    public BlueMapIntegration blueMapIntegration;
 
     @Override
     public void onEnable()
@@ -27,7 +27,13 @@ public class CivsExtras extends JavaPlugin
         getServer().getPluginManager().registerEvents(new VillagerTrades(this), this);
         getServer().getPluginManager().registerEvents(new TownBarManager(), this);
         getServer().getPluginManager().registerEvents(new KeyBinding(this), this);
-        getServer().getPluginManager().registerEvents(blueMapIntegration, this);
+
+        if(Bukkit.getPluginManager().getPlugin("BlueMap") != null)
+        {
+            blueMapIntegration = new BlueMapIntegration(this);
+            getServer().getPluginManager().registerEvents(blueMapIntegration, this);
+        }
+
         if(Bukkit.getPluginManager().getPlugin("GriefPrevention") != null)
         {
             getServer().getPluginManager().registerEvents(new GriefPreventionIntegration(this), this);

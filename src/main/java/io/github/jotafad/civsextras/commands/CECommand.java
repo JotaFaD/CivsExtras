@@ -26,7 +26,11 @@ public class CECommand implements CommandExecutor
             {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "cv reload");
             }
-            plugin.blueMapIntegration.updateCivsMarkers();
+            if(plugin.blueMapIntegration != null)
+            {
+                plugin.blueMapIntegration.updateCivsMarkers();
+            }
+
             return true;
         }
         return false;
