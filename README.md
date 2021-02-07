@@ -11,3 +11,5 @@ Like Civs, this is a work-in-progress. If you have any feature suggestion or bug
 - **Town Bar** - Shows a bar with the current power of a town when inside it. The bar also flashes when a region pays the players, generates/drains power or upkeeps.
 - **F-Key binding**   - Let players open Civs' menu (or any command really) by pressing F with an empty hand.
 - **Sound effect** - Play a sound when a region upkeeps.
+
+Please, visit the [Wiki](https://github.com/JotaFaD/CivsExtras/wiki) for more information.
