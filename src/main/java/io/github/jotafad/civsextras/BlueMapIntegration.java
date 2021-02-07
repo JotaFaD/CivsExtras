@@ -70,7 +70,11 @@ public class BlueMapIntegration implements Listener
             {
                 RegionType regionType = (RegionType) ItemManager.getInstance().getItemType(region.getType());
 
-                if(regionType.getDynmapMarkerKey().equals("")) continue;
+                if(regionType.getDynmapMarkerKey().equals("")
+                || (!plugin.getConfig().getBoolean("bluemap.show-underground-regions") && region.getLocation().getBlock().getLightFromSky() == 0))
+                {
+                    continue;
+                }
 
                 Location regionLocation = region.getLocation();
                 Town town = TownManager.getInstance().getTownAt(regionLocation);

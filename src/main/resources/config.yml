@@ -1,5 +1,7 @@
 reload-civs: true
 f-key-command: 'cv menu'
+bluemap:
+  show-underground-regions: false
 townbar:
   payout-prefix: '$'
   payout-suffix: ''
