@@ -34,11 +34,11 @@ public class CivsExtras extends JavaPlugin
             getServer().getPluginManager().registerEvents(blueMapIntegration, this);
         }
 
-        if(Bukkit.getPluginManager().getPlugin("GriefPrevention") != null)
-        {
-            getServer().getPluginManager().registerEvents(new GriefPreventionIntegration(this), this);
-            getLogger().log(Level.INFO, "GP Found");
-        }
+        //if(Bukkit.getPluginManager().getPlugin("GriefPrevention") != null)
+        //{
+        //    getServer().getPluginManager().registerEvents(new GriefPreventionIntegration(this), this);
+        //    getLogger().log(Level.INFO, "GP Found");
+        //}
 
         int pluginId = 10098;
         Metrics metrics = new Metrics(this, pluginId);

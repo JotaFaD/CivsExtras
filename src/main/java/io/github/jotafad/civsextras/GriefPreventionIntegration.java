@@ -1,34 +1,60 @@
 package io.github.jotafad.civsextras;
 
+import me.ryanhamshire.GriefPrevention.ClaimPermission;
+import me.ryanhamshire.GriefPrevention.CreateClaimResult;
 import me.ryanhamshire.GriefPrevention.GriefPrevention;
+import me.ryanhamshire.GriefPrevention.events.ClaimCreatedEvent;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.redcastlemedia.multitallented.civs.events.RegionCreatedEvent;
+import org.redcastlemedia.multitallented.civs.items.ItemManager;
+import org.redcastlemedia.multitallented.civs.regions.Region;
+import org.redcastlemedia.multitallented.civs.regions.RegionType;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.logging.Level;
 
 public class GriefPreventionIntegration implements Listener
 {
     private final CivsExtras plugin;
+    private final GriefPrevention griefPrevention;
 
     public GriefPreventionIntegration(CivsExtras plugin)
     {
         this.plugin = plugin;
-        plugin.getLogger().log(Level.INFO, "GriefPreventionIntegration Loaded");
+        griefPrevention = GriefPrevention.instance;
     }
 
-    public Optional<GriefPrevention> getGriefPreventionAPI()
+    @EventHandler
+    public void onClaimCreatedEvent(ClaimCreatedEvent event)
     {
-        return Optional.ofNullable(GriefPrevention.instance);
+        plugin.getLogger().log(Level.INFO, "Claim Created");
     }
 
     @EventHandler
     public void onRegionCreatedEvent(RegionCreatedEvent event)
     {
-        getGriefPreventionAPI().ifPresent(griefPreventionAPI -> {
-            plugin.getLogger().log(Level.INFO, "GriefPrevention Found");
-        });
+        Region region = event.getRegion();
+        Location regionLocation = event.getRegion().getLocation();
+        RegionType regionType = (RegionType) ItemManager.getInstance().getItemType(region.getType());
+        World regionWorld = event.getRegion().getLocation().getWorld();
+
+        int x1 = regionLocation.getBlockX() + regionType.getBuildRadiusX();
+        int y1 = regionLocation.getBlockY() + regionType.getBuildRadiusY();
+        int z1 = regionLocation.getBlockZ() + regionType.getBuildRadiusZ();
+
+        int x2 = regionLocation.getBlockX() - regionType.getBuildRadiusX();
+        int y2 = regionLocation.getBlockY() - regionType.getBuildRadiusY();
+        int z2 = regionLocation.getBlockZ() - regionType.getBuildRadiusZ();
+
+        CreateClaimResult result = griefPrevention.dataStore.createClaim(regionWorld, x1, x2, y1, y2, z1, z2, UUID.fromString(""), griefPrevention.dataStore.getClaimAt(regionLocation, false, null), null, null);
+        if(result.succeeded)
+        {
+            result.claim.setPermission(null, ClaimPermission.Build);
+        }
     }
 //
 //    @EventHandler
