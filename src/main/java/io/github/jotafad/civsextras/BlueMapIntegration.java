@@ -6,6 +6,7 @@ import de.bluecolored.bluemap.api.BlueMapWorld;
 import de.bluecolored.bluemap.api.marker.MarkerAPI;
 import de.bluecolored.bluemap.api.marker.MarkerSet;
 import de.bluecolored.bluemap.api.marker.POIMarker;
+import io.github.jotafad.civsextras.config.ConfigManager;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -71,7 +72,7 @@ public class BlueMapIntegration implements Listener
                 RegionType regionType = (RegionType) ItemManager.getInstance().getItemType(region.getType());
 
                 if(regionType.getDynmapMarkerKey().equals("")
-                || (!plugin.getConfig().getBoolean("bluemap.show-underground-regions") && region.getLocation().getBlock().getLightFromSky() == 0))
+                || (!ConfigManager.config.getBoolean("bluemap.show-underground-regions") && region.getLocation().getBlock().getLightFromSky() == 0))
                 {
                     continue;
                 }

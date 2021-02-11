@@ -1,19 +1,20 @@
 package io.github.jotafad.civsextras.commands;
 
 import io.github.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.config.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Level;
 
 public class CECommand implements CommandExecutor
 {
-    private final CivsExtras plugin;
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CECommand.class);
 
-    public CECommand(CivsExtras plugin)
-    {
-        this.plugin = plugin;
-    }
+    public CECommand() {}
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings)
@@ -21,8 +22,8 @@ public class CECommand implements CommandExecutor
         if (strings.length > 0 && strings[0].equals("reload"))
         {
             commandSender.sendMessage("Configuration reloaded");
-            plugin.reloadConfig();
-            if (plugin.getConfig().getBoolean("reload-civs", false))
+            ConfigManager.loadFiles();
+            if (ConfigManager.config.getBoolean("reload-civs"))
             {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "cv reload");
             }

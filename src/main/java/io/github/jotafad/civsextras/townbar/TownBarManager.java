@@ -1,6 +1,7 @@
 package io.github.jotafad.civsextras.townbar;
 
 import io.github.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.config.ConfigManager;
 import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
 import org.bukkit.event.EventHandler;
@@ -128,7 +129,7 @@ public class TownBarManager implements Listener
 
         if (regionUpkeep.getPayout() > 0)
         {
-            title = ChatColor.GREEN + "+" + plugin.getConfig().getString("townbar.payout-prefix") + regionUpkeep.getPayout() + plugin.getConfig().getString("townbar.payout-suffix") + " " + regionType.getDisplayName();
+            title = ChatColor.GREEN + "+" + ConfigManager.config.getString("townbar-payout-prefix") + regionUpkeep.getPayout() + plugin.getConfig().getString("townbar.payout-suffix") + " " + regionType.getDisplayName();
             barColor = BarColor.GREEN;
         }
         else if (regionUpkeep.getPowerOutput() > 0)
@@ -147,7 +148,7 @@ public class TownBarManager implements Listener
             barColor = BarColor.BLUE;
         }
 
-        townBar.addNotification(title, barColor, plugin.getConfig().getInt("townbar.notification-duration"));
+        townBar.addNotification(title, barColor, ConfigManager.config.getInt("townbar-notification-duration"));
         townBar.update();
     }
 

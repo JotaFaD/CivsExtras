@@ -1,6 +1,7 @@
 package io.github.jotafad.civsextras;
 
 import io.github.jotafad.civsextras.commands.CECommand;
+import io.github.jotafad.civsextras.config.ConfigManager;
 import io.github.jotafad.civsextras.effects.BreakEffect;
 import io.github.jotafad.civsextras.effects.SoundEffect;
 import io.github.jotafad.civsextras.townbar.TownBarManager;
@@ -17,14 +18,13 @@ public class CivsExtras extends JavaPlugin
     @Override
     public void onEnable()
     {
-        saveDefaultConfig();
-        getConfig();
+        ConfigManager.loadFiles();
 
-        this.getCommand("ce").setExecutor(new CECommand(this));
+        this.getCommand("ce").setExecutor(new CECommand());
 
         getServer().getPluginManager().registerEvents(new BreakEffect(this), this);
         getServer().getPluginManager().registerEvents(new SoundEffect(this), this);
-        getServer().getPluginManager().registerEvents(new VillagerTrades(this), this);
+        getServer().getPluginManager().registerEvents(new VillagerTrades(), this);
         getServer().getPluginManager().registerEvents(new TownBarManager(), this);
         getServer().getPluginManager().registerEvents(new KeyBinding(this), this);
 

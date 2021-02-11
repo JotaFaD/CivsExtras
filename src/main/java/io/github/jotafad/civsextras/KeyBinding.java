@@ -1,5 +1,6 @@
 package io.github.jotafad.civsextras;
 
+import io.github.jotafad.civsextras.config.ConfigManager;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,9 +18,9 @@ public class KeyBinding implements Listener
     @EventHandler
     public void onPlayerSwapHandItems(PlayerSwapHandItemsEvent event)
     {
-        if (!plugin.getConfig().getString("f-key-command").equals("") && event.getOffHandItem().getType().equals(Material.AIR) && !event.getPlayer().isSneaking())
+        if (!ConfigManager.config.getString("f-key-command").equals("") && event.getOffHandItem().getType().equals(Material.AIR) && !event.getPlayer().isSneaking())
         {
-            event.getPlayer().performCommand(plugin.getConfig().getString("f-key-command"));
+            event.getPlayer().performCommand(ConfigManager.config.getString("f-key-command"));
             event.setCancelled(true);
         }
     }

@@ -1,18 +1,24 @@
 plugins {
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
     id 'java'
 }
 
 version '2.1.0'
 
+shadowJar {
+    archiveClassifier.set('')
+}
+
 repositories {
     mavenCentral()
-    maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots" }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots' }
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compileOnly "org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT"
-    implementation 'com.github.BlueMap-Minecraft:BlueMapAPI:v1.3.1'
-    implementation  'com.github.TechFortress:GriefPrevention:16.17.1'
-    implementation files("libs/civs-1.7.6.jar")
+    compileOnly 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
+    implementation 'com.amihaiemil.web:eo-yaml:5.1.9'
+    shadow 'com.github.BlueMap-Minecraft:BlueMapAPI:v1.3.1'
+    shadow  'com.github.TechFortress:GriefPrevention:16.17.1'
+    shadow files('libs/civs-1.7.6.jar')
 }

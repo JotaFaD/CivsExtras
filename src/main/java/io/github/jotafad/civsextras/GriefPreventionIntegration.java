@@ -13,7 +13,6 @@ import org.redcastlemedia.multitallented.civs.items.ItemManager;
 import org.redcastlemedia.multitallented.civs.regions.Region;
 import org.redcastlemedia.multitallented.civs.regions.RegionType;
 
-import java.util.Optional;
 import java.util.UUID;
 import java.util.logging.Level;
 
