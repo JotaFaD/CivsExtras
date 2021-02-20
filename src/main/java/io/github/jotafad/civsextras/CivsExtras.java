@@ -13,7 +13,7 @@ import java.util.logging.Level;
 
 public class CivsExtras extends JavaPlugin
 {
-    public final int pluginId = 10098;
+    public final int PLUGIN_ID = 10098;
 
     public BlueMapIntegration blueMapIntegration;
 
@@ -42,7 +42,7 @@ public class CivsExtras extends JavaPlugin
         //    getLogger().log(Level.INFO, "GP Found");
         //}
 
-        Metrics metrics = new Metrics(this, pluginId);
+        Metrics metrics = new Metrics(this, PLUGIN_ID);
     }
 
     @Override
