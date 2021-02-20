@@ -10,6 +10,7 @@ import io.github.jotafad.civsextras.config.ConfigManager;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.redcastlemedia.multitallented.civs.events.*;
 import org.redcastlemedia.multitallented.civs.items.ItemManager;
@@ -28,7 +29,7 @@ import java.util.stream.Collectors;
 
 public class BlueMapIntegration implements Listener
 {
-    private final CivsExtras plugin;
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CivsExtras.class);
 
     public class UpdateCivsMarkers extends BukkitRunnable
     {
@@ -44,10 +45,8 @@ public class BlueMapIntegration implements Listener
         }
     }
 
-    public BlueMapIntegration(CivsExtras plugin)
+    public BlueMapIntegration()
     {
-        this.plugin = plugin;
-
         BlueMapAPI.onEnable(blueMapAPI -> {
             new UpdateCivsMarkers().runTask(plugin);
         });

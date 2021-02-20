@@ -5,15 +5,13 @@ import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class KeyBinding implements Listener
 {
-    private final CivsExtras plugin;
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(KeyBinding.class);
 
-    public KeyBinding(CivsExtras plugin)
-    {
-        this.plugin = plugin;
-    }
+    public KeyBinding(){}
 
     @EventHandler
     public void onPlayerSwapHandItems(PlayerSwapHandItemsEvent event)

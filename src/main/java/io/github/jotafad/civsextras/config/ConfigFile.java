@@ -5,6 +5,7 @@ import com.amihaiemil.eoyaml.YamlMapping;
 import com.amihaiemil.eoyaml.YamlSequence;
 import com.amihaiemil.eoyaml.extensions.MergedYamlMapping;
 import io.github.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.effects.SoundEffect;
 import io.github.jotafad.civsextras.utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.enchantments.EnchantmentWrapper;
@@ -20,7 +21,7 @@ import java.util.Arrays;
 
 public class ConfigFile
 {
-    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(ConfigManager.class);
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CivsExtras.class);
 
     public File file;
     public YamlMapping data;

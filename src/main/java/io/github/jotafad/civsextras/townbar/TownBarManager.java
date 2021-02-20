@@ -20,8 +20,7 @@ import java.util.UUID;
 
 public class TownBarManager implements Listener
 {
-
-    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(TownBarManager.class);
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CivsExtras.class);
     private final HashMap<String, TownBar> townBars = new HashMap<>();
 
     public TownBarManager()

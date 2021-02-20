@@ -8,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.redcastlemedia.multitallented.civs.events.RegionCreatedEvent;
 import org.redcastlemedia.multitallented.civs.items.ItemManager;
 import org.redcastlemedia.multitallented.civs.regions.Region;
@@ -18,12 +19,11 @@ import java.util.logging.Level;
 
 public class GriefPreventionIntegration implements Listener
 {
-    private final CivsExtras plugin;
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CivsExtras.class);
     private final GriefPrevention griefPrevention;
 
-    public GriefPreventionIntegration(CivsExtras plugin)
+    public GriefPreventionIntegration()
     {
-        this.plugin = plugin;
         griefPrevention = GriefPrevention.instance;
     }
 

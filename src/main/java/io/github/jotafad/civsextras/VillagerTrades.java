@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class VillagerTrades implements Listener
 {
-    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(ConfigManager.class);
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(VillagerTrades.class);
 
     public VillagerTrades()
     {

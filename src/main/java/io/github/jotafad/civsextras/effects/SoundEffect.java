@@ -1,23 +1,22 @@
 package io.github.jotafad.civsextras.effects;
 
 import io.github.jotafad.civsextras.CivsExtras;
+import io.github.jotafad.civsextras.KeyBinding;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.redcastlemedia.multitallented.civs.events.RegionUpkeepEvent;
 import org.redcastlemedia.multitallented.civs.regions.Region;
 
 public class SoundEffect implements Listener
 {
-    private final CivsExtras plugin;
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(SoundEffect.class);
     public static String KEY = "sound";
 
-    public SoundEffect(CivsExtras plugin)
-    {
-        this.plugin = plugin;
-    }
+    public SoundEffect(){}
 
     @EventHandler
     public void onRegionUpkeep(RegionUpkeepEvent event)

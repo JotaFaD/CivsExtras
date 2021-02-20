@@ -18,7 +18,7 @@ import java.util.UUID;
 
 public class TownBar
 {
-    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(TownBarManager.class);
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CivsExtras.class);
     private final Deque<Notification> notificationsDeque = new ArrayDeque<>();
     public BossBar bossBar;
     public String townName;

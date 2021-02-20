@@ -7,7 +7,7 @@ import java.io.File;
 
 public class ConfigManager
 {
-    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(ConfigManager.class);
+    private static final CivsExtras plugin = (CivsExtras) JavaPlugin.getProvidingPlugin(CivsExtras.class);
 
     public static ConfigFile config = new ConfigFile(new File(plugin.getDataFolder(), "config.yml"));
     public static ConfigFile trades = new ConfigFile(new File(plugin.getDataFolder(), "trades.yml"));

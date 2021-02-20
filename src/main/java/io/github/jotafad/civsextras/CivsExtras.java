@@ -13,6 +13,8 @@ import java.util.logging.Level;
 
 public class CivsExtras extends JavaPlugin
 {
+    public final int pluginId = 10098;
+
     public BlueMapIntegration blueMapIntegration;
 
     @Override
@@ -22,15 +24,15 @@ public class CivsExtras extends JavaPlugin
 
         this.getCommand("ce").setExecutor(new CECommand());
 
-        getServer().getPluginManager().registerEvents(new BreakEffect(this), this);
-        getServer().getPluginManager().registerEvents(new SoundEffect(this), this);
+        getServer().getPluginManager().registerEvents(new BreakEffect(), this);
+        getServer().getPluginManager().registerEvents(new SoundEffect(), this);
         getServer().getPluginManager().registerEvents(new VillagerTrades(), this);
         getServer().getPluginManager().registerEvents(new TownBarManager(), this);
-        getServer().getPluginManager().registerEvents(new KeyBinding(this), this);
+        getServer().getPluginManager().registerEvents(new KeyBinding(), this);
 
         if(Bukkit.getPluginManager().getPlugin("BlueMap") != null)
         {
-            blueMapIntegration = new BlueMapIntegration(this);
+            blueMapIntegration = new BlueMapIntegration();
             getServer().getPluginManager().registerEvents(blueMapIntegration, this);
         }
 
@@ -40,7 +42,6 @@ public class CivsExtras extends JavaPlugin
         //    getLogger().log(Level.INFO, "GP Found");
         //}
 
-        int pluginId = 10098;
         Metrics metrics = new Metrics(this, pluginId);
     }
 
